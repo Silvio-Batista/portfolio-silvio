@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-exo2: "Exo 2", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,4 +20,17 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-family: var(--font-exo2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-orbitron);
 }
