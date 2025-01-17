@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💼 Meu Portfólio Pessoal
 
-## Getting Started
+Seja bem-vindo ao meu portfólio pessoal! 🚀 Aqui você encontrará mais sobre minha trajetória profissional, projetos, experiências e formas de entrar em contato comigo. Este é um projeto feito com **React**, **Next.js**, e utiliza um design moderno e responsivo.
 
-First, run the development server:
+![Hero Image](public/images/brewstack.webp)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 Funcionalidades
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Apresentação Pessoal**: Introdução elegante com informações sobre quem eu sou.
+- **Seção Sobre Mim**: Conheça mais sobre minhas habilidades e trajetória.
+- **Projetos**: Listagem de projetos que desenvolvi com tecnologias modernas.
+- **Experiências**: Um resumo das empresas em que trabalhei e o que realizei.
+- **Contato**: Links para minhas redes sociais e um botão para me chamar diretamente no WhatsApp.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**: Framework para React que oferece server-side rendering.
+- **React**: Biblioteca para construção de interfaces dinâmicas e modernas.
+- **Tailwind CSS**: Framework CSS para estilização rápida e responsiva.
+- **Framer Motion** (opcional): Para animações suaves e interativas.
+- **React Icons**: Biblioteca de ícones para uma apresentação visual atraente.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📷 Capturas de Tela
 
-## Deploy on Vercel
+### 🖥️ Página Inicial (Hero Section)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Hero Section](public/images/screenshot-hero.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🛠️ Projetos
+
+![Projetos Section](public/images/screenshot-projects.png)
+
+---
+
+## 📂 Estrutura do Projeto
+
+```plaintext
+meu-portfolio/
+├── public/
+│   ├── images/        # Imagens do projeto (logos, screenshots, fundo, etc.)
+│   └── icons/         # Ícones SVG utilizados
+├── src/
+│   ├── components/    # Componentes reutilizáveis (Navbar, Hero, etc.)
+│   ├── pages/         # Páginas do projeto
+│   └── styles/        # Arquivos de estilização (opcional)
+├── README.md          # Arquivo de documentação
+└── package.json       # Configuração de dependências
