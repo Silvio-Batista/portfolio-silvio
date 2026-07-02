@@ -45,7 +45,7 @@ export default function Education() {
       title="Formação Acadêmica"
       subtitle="Base técnica e acadêmica em constante evolução"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
         {educationItems.map((item, index) => (
           <motion.div
             key={item.id}
@@ -53,7 +53,7 @@ export default function Education() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="glass-card p-6 flex flex-col gap-3 hover:shadow-glow transition-all duration-300"
+            className="glass-card p-5 sm:p-6 flex flex-col gap-3 hover:shadow-glow transition-all duration-300"
           >
             <div className="flex items-start justify-between gap-2">
               <InstitutionLogo logo={item.logo} institution={item.institution} />

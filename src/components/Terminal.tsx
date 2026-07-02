@@ -57,11 +57,11 @@ export default function Terminal() {
         className="max-w-3xl mx-auto"
       >
         <div className="rounded-xl overflow-hidden border border-terminal-purple/20 shadow-2xl shadow-glow-purple bg-[#0d1117]">
-          <div className="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-b border-terminal-purple/15">
-            <span className="w-3 h-3 rounded-full bg-red-500/80" />
-            <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <span className="w-3 h-3 rounded-full bg-terminal-purple/80" />
-            <span className="ml-3 text-gray-500 text-sm font-mono">
+          <div className="flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-[#161b22] border-b border-terminal-purple/15 min-w-0">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80 flex-shrink-0" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80 flex-shrink-0" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-purple/80 flex-shrink-0" />
+            <span className="ml-1 sm:ml-3 text-gray-500 text-[10px] sm:text-sm font-mono truncate">
               silvio@bredi:~/portfolio
             </span>
           </div>
@@ -73,8 +73,9 @@ export default function Terminal() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="p-4 md:p-6 min-h-[280px] font-mono text-sm md:text-base"
+              className="p-3 sm:p-6 min-h-[220px] sm:min-h-[280px] font-mono text-[11px] sm:text-sm md:text-base overflow-x-auto"
             >
+              <div className="min-w-0 whitespace-pre-wrap break-words">
               {displayedLines.map((line, index) => (
                 <div
                   key={index}
@@ -101,16 +102,17 @@ export default function Terminal() {
                   <span className="animate-blink">█</span>
                 </div>
               )}
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <div className="flex flex-wrap gap-2 mt-4 justify-center">
+        <div className="flex gap-2 mt-4 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide snap-x snap-mandatory">
           {terminalScenarios.map((s, index) => (
             <button
               key={s.id}
               onClick={() => selectScenario(index)}
-              className={`px-4 py-2 rounded-lg text-sm font-mono transition-all duration-200 border ${
+              className={`flex-shrink-0 snap-start px-3 sm:px-4 py-2.5 rounded-lg text-xs sm:text-sm font-mono transition-all duration-200 border min-h-[44px] ${
                 activeIndex === index
                   ? "bg-terminal-purple/20 border-terminal-purple text-terminal-purple"
                   : "bg-card border-card text-muted hover:border-terminal-purple/30 hover:text-foreground"

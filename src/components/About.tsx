@@ -24,15 +24,15 @@ export default function About() {
       title="Sobre Mim"
       subtitle="Da curiosidade com Python à construção de sistemas de grande escala"
     >
-      <div className="flex flex-col gap-8 max-w-5xl mx-auto">
+      <div className="flex flex-col gap-5 sm:gap-8 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card p-8 flex flex-col md:flex-row items-center md:items-start gap-8"
+          className="glass-card p-5 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-8"
         >
           <div className="relative flex-shrink-0">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-terminal-purple/30 shadow-glow-purple overflow-hidden bg-surface-elevated">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-2 border-terminal-purple/30 shadow-glow-purple overflow-hidden bg-surface-elevated">
               <img
                 src="/images/profile.jpg"
                 alt="Minha Foto"
@@ -78,7 +78,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card p-6 border-terminal-purple/20"
+          className="glass-card p-5 sm:p-6 border-terminal-purple/20"
         >
           <h3 className="text-lg font-bold text-foreground mb-2 font-mono">
             <span className="text-terminal-purple">{"//"}</span> Objetivo
@@ -102,7 +102,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card p-6 flex flex-col md:flex-row items-center gap-6"
+          className="glass-card p-5 sm:p-6 flex flex-col md:flex-row items-center gap-5 sm:gap-6"
         >
           <div className="w-24 h-24 rounded-xl bg-card border border-card flex items-center justify-center flex-shrink-0 overflow-hidden">
             <img

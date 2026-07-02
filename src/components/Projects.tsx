@@ -39,12 +39,12 @@ export default function Projects() {
         title="Projetos"
         subtitle="Soluções em que participei ativamente e portfólio Bredi"
       >
-        <div className="flex justify-center gap-2 mb-8">
+        <div className="grid grid-cols-2 sm:flex sm:justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
           {(["featured", "bredi"] as Tab[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2.5 rounded-lg font-mono text-sm transition-all border ${
+              className={`px-4 sm:px-6 py-3 rounded-lg font-mono text-xs sm:text-sm transition-all border min-h-[48px] ${
                 activeTab === tab
                   ? tab === "featured"
                     ? "bg-terminal-green/20 border-terminal-green text-terminal-green"
@@ -58,12 +58,12 @@ export default function Projects() {
         </div>
 
         {activeTab === "bredi" && (
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <div className="flex gap-2 mb-6 sm:mb-8 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide snap-x snap-mandatory">
             {brediCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setCategoryFilter(cat)}
-                className={`px-3 py-1.5 rounded-full text-xs font-mono transition-all border ${
+                className={`flex-shrink-0 snap-start px-3 py-2 rounded-full text-xs font-mono transition-all border min-h-[40px] ${
                   categoryFilter === cat
                     ? "bg-terminal-purple/15 border-terminal-purple text-terminal-purple"
                     : "bg-card border-card text-muted hover:text-foreground"
@@ -75,7 +75,7 @@ export default function Projects() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
@@ -93,14 +93,14 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-sm"
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-surface-elevated border border-card rounded-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl"
+              initial={{ scale: 0.95, opacity: 0, y: 24 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 24 }}
+              className="bg-surface-elevated border border-card rounded-t-2xl sm:rounded-2xl max-w-lg w-full max-h-[90dvh] sm:max-h-[80vh] overflow-y-auto p-5 sm:p-6 shadow-2xl safe-bottom"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-start justify-between gap-4 mb-4">
@@ -116,7 +116,7 @@ export default function Projects() {
                 </div>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="text-muted hover:text-foreground p-1"
+                  className="text-muted hover:text-foreground p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
                   aria-label="Fechar"
                 >
                   <FaTimes />

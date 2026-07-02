@@ -13,7 +13,7 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
   if (!mounted) {
     return (
       <div
-        className={`w-9 h-9 rounded-lg border border-card bg-card ${className}`}
+        className={`min-h-[44px] min-w-[44px] w-11 h-11 rounded-lg border border-card bg-card ${className}`}
         aria-hidden
       />
     );
@@ -22,7 +22,7 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
   return (
     <button
       onClick={toggleTheme}
-      className={`w-9 h-9 flex items-center justify-center rounded-lg border border-card bg-card text-muted hover:text-terminal-purple hover:border-terminal-purple/40 hover:shadow-glow-purple transition-all duration-200 ${className}`}
+      className={`min-h-[44px] min-w-[44px] w-11 h-11 flex items-center justify-center rounded-lg border border-card bg-card text-muted hover:text-terminal-purple hover:border-terminal-purple/40 hover:shadow-glow-purple transition-all duration-200 ${className}`}
       aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
       title={theme === "dark" ? "Tema claro" : "Tema escuro"}
     >

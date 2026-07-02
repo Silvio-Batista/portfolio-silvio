@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Orbitron, Exo_2, JetBrains_Mono } from "next/font/google";
 import NotificationProvider from "@/components/NotificationProvider";
 import ThemeProvider from "@/components/ThemeProvider";
@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     "Portfólio de Silvio Batista — Desenvolvedor Web FullStack com foco em back-end, Laravel, APIs e sistemas escaláveis.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 const themeScript = `
 (function() {
   try {
@@ -52,7 +58,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`antialiased bg-background text-foreground ${orbitron.variable} ${exo2.variable} ${jetbrains.variable}`}
+        className={`antialiased bg-background text-foreground overflow-x-hidden ${orbitron.variable} ${exo2.variable} ${jetbrains.variable}`}
       >
         <ThemeProvider>
           <NotificationProvider>{children}</NotificationProvider>

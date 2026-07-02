@@ -16,13 +16,13 @@ export default function Contact() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-lg mx-auto glass-card p-8 flex flex-col items-center gap-6"
+        className="max-w-lg mx-auto glass-card p-5 sm:p-8 flex flex-col items-center gap-5 sm:gap-6 w-full"
       >
         <a
           href="https://wa.me/5591992984421"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-terminal-green/10 border border-terminal-green/40 text-terminal-green font-mono px-8 py-3 rounded-lg hover:bg-terminal-green/20 transition-all duration-300 text-base"
+          className="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-terminal-green/10 border border-terminal-green/40 text-terminal-green font-mono px-6 sm:px-8 py-3.5 rounded-lg hover:bg-terminal-green/20 transition-all duration-300 text-sm sm:text-base min-h-[48px]"
         >
           <BsWhatsapp className="text-xl" />
           Mande uma mensagem

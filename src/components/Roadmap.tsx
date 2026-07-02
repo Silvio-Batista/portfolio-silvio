@@ -32,9 +32,9 @@ export default function Roadmap() {
       subtitle="Da primeira oportunidade aos projetos que construo hoje"
     >
       <div className="relative max-w-3xl mx-auto">
-        <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-terminal-green via-terminal-cyan to-terminal-purple opacity-30" />
+        <div className="absolute left-4 sm:left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-terminal-green via-terminal-cyan to-terminal-purple opacity-30" />
 
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-5 sm:gap-8">
           {timelineItems.map((item, index) => {
             const config = typeConfig[item.type];
             const Icon = config.icon;
@@ -46,16 +46,16 @@ export default function Roadmap() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative pl-16 md:pl-20"
+                className="relative pl-12 sm:pl-16 md:pl-20"
               >
                 <div
-                  className={`absolute left-3 md:left-5 top-6 w-7 h-7 rounded-full bg-surface-elevated border border-white/10 flex items-center justify-center ${config.color}`}
+                  className={`absolute left-1.5 sm:left-3 md:left-5 top-5 sm:top-6 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-surface-elevated border border-card flex items-center justify-center ${config.color}`}
                 >
                   <Icon className="text-xs" />
                 </div>
 
-                <div className="glass-card p-6 hover:shadow-glow transition-all duration-300">
-                  <div className="flex flex-col md:flex-row md:items-start gap-4">
+                <div className="glass-card p-4 sm:p-6 hover:shadow-glow transition-all duration-300">
+                  <div className="flex flex-row items-start gap-3 sm:gap-4">
                     {item.logo ? (
                       <div className="w-14 h-14 rounded-xl bg-card border border-card flex items-center justify-center flex-shrink-0 overflow-hidden p-1.5">
                         <img
@@ -97,7 +97,7 @@ export default function Roadmap() {
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-bold text-foreground mb-0.5">
+                      <h3 className="text-base sm:text-lg font-bold text-foreground mb-0.5 leading-snug">
                         {item.link ? (
                           <a
                             href={item.link}

@@ -78,7 +78,7 @@ export default function ProjectCard({
         )}
       </div>
 
-      <div className="p-5 flex flex-col flex-1 gap-3">
+      <div className="p-4 sm:p-5 flex flex-col flex-1 gap-3">
         <div>
           <h3 className="text-lg font-bold text-foreground group-hover:text-terminal-purple transition-colors">
             {project.name}
@@ -107,11 +107,11 @@ export default function ProjectCard({
           </div>
         )}
 
-        <div className="flex gap-2 mt-auto pt-2">
+        <div className="flex flex-col sm:flex-row gap-2 mt-auto pt-2">
           {onDetails && (
             <button
               onClick={() => onDetails(project)}
-              className="flex-1 text-sm font-mono px-4 py-2 rounded-lg bg-card border border-card text-foreground/80 hover:border-terminal-purple/50 hover:text-terminal-purple transition-all"
+              className="flex-1 text-sm font-mono px-4 py-3 rounded-lg bg-card border border-card text-foreground/80 hover:border-terminal-purple/50 hover:text-terminal-purple transition-all min-h-[48px]"
             >
               Ver detalhes
             </button>
@@ -121,7 +121,7 @@ export default function ProjectCard({
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-2 rounded-lg bg-terminal-green/10 border border-terminal-green/30 text-terminal-green hover:bg-terminal-green/20 transition-all"
+              className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-3 rounded-lg bg-terminal-green/10 border border-terminal-green/30 text-terminal-green hover:bg-terminal-green/20 transition-all min-h-[48px] sm:min-w-[100px]"
             >
               <FaExternalLinkAlt className="text-xs" />
               Site

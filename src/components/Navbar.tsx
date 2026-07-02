@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { scrollToSection } from "@/lib/scroll";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
@@ -29,7 +30,7 @@ export default function Navbar() {
             setActiveSection(id);
           }
         },
-        { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+        { rootMargin: "-30% 0px -55% 0px", threshold: 0 }
       );
 
       observer.observe(element);
@@ -39,32 +40,36 @@ export default function Navbar() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false);
-    }
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const navigate = (id: string) => {
+    scrollToSection(id);
+    setMenuOpen(false);
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-4">
-      <nav className="mx-auto mt-4 flex items-center justify-between rounded-xl shadow-lg px-4 py-2 bg-surface/80 backdrop-blur-md border border-card max-w-4xl relative overflow-hidden">
+    <header className="fixed top-0 left-0 w-full z-50 px-3 sm:px-4 safe-top">
+      <nav className="mx-auto mt-2 sm:mt-4 flex items-center justify-between rounded-xl shadow-lg px-3 sm:px-4 py-2.5 bg-surface/90 backdrop-blur-md border border-card max-w-4xl relative">
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-terminal-purple/40 to-transparent" />
 
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="font-mono text-sm text-terminal-green hover:text-terminal-purple transition-colors px-2 z-10"
+          className="font-mono text-xs sm:text-sm text-terminal-green hover:text-terminal-purple transition-colors z-10 min-h-[44px] min-w-[44px] flex items-center"
         >
           ~/silvio
         </button>
 
-        <ul className="hidden md:flex space-x-1 z-10">
+        <ul className="hidden lg:flex space-x-1 z-10">
           {navItems.map(({ id, label }) => (
             <li key={id}>
               <button
-                onClick={() => scrollToSection(id)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-mono transition-all duration-200 ${
+                onClick={() => navigate(id)}
+                className={`px-3 py-2 rounded-lg text-sm font-mono transition-all duration-200 min-h-[44px] ${
                   activeSection === id
                     ? "bg-terminal-purple/15 text-terminal-purple border border-terminal-purple/25 shadow-glow-purple"
                     : "text-muted hover:text-foreground hover:bg-card border border-transparent"
@@ -76,12 +81,13 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2 z-10">
-          <ThemeToggle className="hidden md:flex" />
+        <div className="flex items-center gap-1.5 z-10">
+          <ThemeToggle />
           <button
             onClick={() => setMenuOpen((open) => !open)}
-            className="md:hidden text-muted hover:text-foreground p-2 rounded-lg hover:bg-card transition"
-            aria-label="Abrir menu"
+            className="lg:hidden text-muted hover:text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-card transition"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
           >
             <svg
               className="w-6 h-6"
@@ -101,27 +107,31 @@ export default function Navbar() {
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden mx-auto mt-2 max-w-4xl animate-fade-in">
-          <ul className="bg-surface/95 backdrop-blur-md border border-card rounded-xl shadow-lg py-3 px-4 space-y-1">
-            {navItems.map(({ id, label }) => (
-              <li key={id}>
-                <button
-                  onClick={() => scrollToSection(id)}
-                  className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-mono transition-all ${
-                    activeSection === id
-                      ? "bg-terminal-purple/15 text-terminal-purple border border-terminal-purple/25"
-                      : "text-muted hover:bg-card hover:text-foreground"
-                  }`}
-                >
-                  {label}
-                </button>
-              </li>
-            ))}
-            <li className="pt-2 border-t border-card flex justify-center">
-              <ThemeToggle />
-            </li>
-          </ul>
-        </div>
+        <>
+          <button
+            className="lg:hidden fixed inset-0 top-16 bg-black/50 backdrop-blur-sm z-40"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Fechar menu"
+          />
+          <div className="lg:hidden fixed left-3 right-3 top-[4.5rem] z-50 animate-fade-in safe-top">
+            <ul className="bg-surface/98 backdrop-blur-md border border-card rounded-xl shadow-2xl py-2 px-2 space-y-0.5 max-h-[calc(100dvh-6rem)] overflow-y-auto">
+              {navItems.map(({ id, label }) => (
+                <li key={id}>
+                  <button
+                    onClick={() => navigate(id)}
+                    className={`w-full text-left px-4 py-3.5 rounded-lg text-base font-mono transition-all min-h-[48px] ${
+                      activeSection === id
+                        ? "bg-terminal-purple/15 text-terminal-purple border border-terminal-purple/25"
+                        : "text-muted hover:bg-card hover:text-foreground"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
       )}
     </header>
   );

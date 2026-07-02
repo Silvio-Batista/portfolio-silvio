@@ -138,7 +138,7 @@ export default function NotificationProvider({
   return (
     <NotificationContext.Provider value={{ showNotification }}>
       {children}
-      <div className="fixed bottom-4 right-4 z-[100] flex flex-col gap-3 pointer-events-none">
+      <div className="fixed bottom-3 left-3 right-3 sm:left-auto sm:right-4 sm:bottom-4 z-[100] flex flex-col gap-2 sm:gap-3 pointer-events-none safe-bottom">
         <AnimatePresence>
           {toasts.map((toast) => {
             const Icon = iconMap[toast.icon];
@@ -149,17 +149,17 @@ export default function NotificationProvider({
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 80, scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="pointer-events-auto flex items-center gap-3 bg-surface-elevated border border-terminal-purple/20 rounded-xl px-4 py-3 shadow-2xl max-w-sm backdrop-blur-md"
+                className="pointer-events-auto flex items-center gap-2 sm:gap-3 bg-surface-elevated border border-terminal-purple/20 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl w-full sm:max-w-sm backdrop-blur-md"
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-terminal-purple/20 flex items-center justify-center">
                   <Icon className="text-terminal-purple text-sm" />
                 </div>
-                <p className="text-sm text-foreground font-mono flex-1">
+                <p className="text-xs sm:text-sm text-foreground font-mono flex-1 leading-snug">
                   {toast.message}
                 </p>
                 <button
                   onClick={() => removeToast(toast.toastId)}
-                  className="text-muted hover:text-foreground transition-colors flex-shrink-0"
+                  className="text-muted hover:text-foreground transition-colors flex-shrink-0 min-h-[44px] min-w-[44px] flex items-center justify-center"
                   aria-label="Fechar notificação"
                 >
                   <FaTimes className="text-xs" />
