@@ -1,109 +1,140 @@
 "use client";
 
-import React from "react";
+import { motion } from "framer-motion";
 import TechCarousel from "./TechCarousel";
+import Section from "./ui/Section";
+
+const skills = [
+  "TypeScript",
+  "Laravel",
+  "PHP",
+  "MySQL",
+  "PostgreSQL",
+  "React",
+  "Next.js",
+  "Docker",
+  "Redis",
+  "API REST",
+];
 
 export default function About() {
   return (
-    <section
+    <Section
       id="about"
-      className="py-20 bg-gradient-to-b from-gray-200 to-blue-100 text-black"
+      title="Sobre Mim"
+      subtitle="Da curiosidade com Python à construção de sistemas de grande escala"
     >
-      <div className="container mx-auto px-4 max-w-5xl flex flex-col gap-12">
-        {/* Perfil e Sobre Mim */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 bg-white/70 rounded-3xl shadow-xl p-8">
-          <img
-            src="/images/profile.jpg"
-            alt="Minha Foto"
-            className="w-32 h-32 md:w-44 md:h-44 rounded-full shadow-lg object-cover mb-4 md:mb-0 border-4 border-blue-200"
-          />
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-4">
-            <h2 className="text-3xl font-bold text-blue-800">Sobre Mim</h2>
-            <p className="text-lg leading-relaxed">
-              Anos atrás, uma simples curiosidade me levou a fazer um curso de
-              Python. Foi ali que descobri minha paixão por programação, que me
-              motivou a buscar mais conhecimento e transformar isso na minha
-              profissão. Hoje, sigo evoluindo e aprendendo todos os dias, sempre
-              em busca de novos desafios. Se você está começando, lembre-se: um
-              pequeno passo pode mudar tudo. 🚀
-            </p>
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                TypeScript
-              </span>
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                Laravel
-              </span>
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                PHP
-              </span>
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                MySQL
-              </span>
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                React
-              </span>
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                Next.js
-              </span>
+      <div className="flex flex-col gap-8 max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass-card p-8 flex flex-col md:flex-row items-center md:items-start gap-8"
+        >
+          <div className="relative flex-shrink-0">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-terminal-purple/30 shadow-glow-purple overflow-hidden bg-surface-elevated">
+              <img
+                src="/images/profile.jpg"
+                alt="Minha Foto"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
-        </div>
 
-        {/* Objetivo Profissional */}
-        <div className="bg-gradient-to-r from-blue-200 to-blue-300 rounded-3xl shadow-lg p-8 flex flex-col items-center gap-4">
-          <h3 className="text-2xl font-semibold text-blue-800">Meu Objetivo</h3>
-          <p className="text-lg leading-relaxed text-center max-w-2xl">
-            Quero transformar ideias em experiências digitais marcantes, criando
+          <div className="flex-1 text-center md:text-left">
+            <p className="text-foreground/80 leading-relaxed mb-6">
+              Anos atrás, uma simples curiosidade me levou a fazer um curso de
+              Python. Foi ali que descobri minha paixão por programação. Hoje,
+              na{" "}
+              <span className="text-terminal-green font-medium">
+                Bredi Tecnologia
+              </span>
+              , desenvolvo sistemas para hospitais, clubes, times de futebol e
+              startups — sempre com foco em APIs robustas, escalabilidade e
+              entrega de valor real. Utilizo IA no dia a dia para acelerar
+              desenvolvimento e elevar a qualidade do código.
+            </p>
+
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+              {skills.map((skill, i) => (
+                <span
+                  key={skill}
+                  className={`px-3 py-1 rounded-full text-xs font-mono border ${
+                    i % 3 === 0
+                      ? "bg-terminal-green/10 border-terminal-green/20 text-terminal-green"
+                      : i % 3 === 1
+                        ? "bg-terminal-purple/10 border-terminal-purple/20 text-terminal-purple"
+                        : "bg-terminal-cyan/10 border-terminal-cyan/20 text-terminal-cyan"
+                  }`}
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass-card p-6 border-terminal-purple/20"
+        >
+          <h3 className="text-lg font-bold text-foreground mb-2 font-mono">
+            <span className="text-terminal-purple">{"//"}</span> Objetivo
+          </h3>
+          <p className="text-muted leading-relaxed">
+            Transformar ideias em experiências digitais marcantes, criando
             soluções que realmente façam diferença para pessoas e negócios.
             Busco sempre unir tecnologia, criatividade e qualidade em tudo o que
             desenvolvo.
           </p>
+        </motion.div>
+
+        <div>
+          <h3 className="text-lg font-bold text-center mb-6 font-mono text-foreground">
+            <span className="text-terminal-purple">{"//"}</span> Stack
+          </h3>
+          <TechCarousel />
         </div>
 
-        {/* Carrossel de Tecnologias */}
-        <div className="flex flex-col items-center gap-6">
-          <h3 className="text-2xl font-semibold text-blue-800">
-            Tecnologias que utilizo
-          </h3>
-          <div className="w-full max-w-3xl">
-            <TechCarousel />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass-card p-6 flex flex-col md:flex-row items-center gap-6"
+        >
+          <div className="w-24 h-24 rounded-xl bg-card border border-card flex items-center justify-center flex-shrink-0 overflow-hidden">
+            <img
+              src="/images/projects/bredi-logo.svg"
+              alt="Bredi Tecnologia"
+              className="max-w-full max-h-full object-contain p-2"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = "none";
+                target.parentElement!.innerHTML =
+                  '<span class="text-terminal-green font-bold text-xl">B</span>';
+              }}
+            />
           </div>
-        </div>
-
-        {/* Experiência Atual */}
-        <div className="flex flex-col gap-2 items-center mb-2">
-          <h3 className="text-2xl font-semibold text-blue-800">
-            Experiência Atual
-          </h3>
-          <p className="text-base text-gray-700 text-center max-w-2xl">
-            Atualmente, faço parte do time da{" "}
-            <span className="font-bold text-blue-800">Bredi Tecnologia</span>,
-            onde atuo como desenvolvedor back-end e contribuo para projetos
-            desafiadores e inovadores.
-          </p>
-        </div>
-        <div className="bg-gradient-to-r from-blue-200 to-blue-300 rounded-3xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-6">
-          <img
-            src="/images/bredi.png"
-            alt="Logo da Empresa"
-            className="w-28 md:w-36"
-          />
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-2">
+          <div className="flex-1 text-center md:text-left">
             <a
               href="https://www.bredi.com.br/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl font-bold text-blue-800 hover:underline"
+              className="text-lg font-bold text-foreground hover:text-terminal-purple transition-colors"
             >
               Back-End Developer na Bredi Tecnologia
             </a>
-            <p className="text-lg leading-relaxed">
-              Participo ativamente de projetos desafiadores, desenvolvendo APIs robustas, otimizando sistemas e garantindo infraestrutura eficiente. Meu foco é criar soluções inovadoras, seguras e escaláveis que realmente geram valor para o negócio.
+            <p className="text-muted text-sm mt-2 leading-relaxed">
+              Participo ativamente de projetos desafiadores — APIs, integrações
+              com gateways de pagamento, sistemas de biometria facial com IA,
+              plataformas de mobilidade urbana e muito mais. Mais de 800 clientes
+              atendidos pela Bredi.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </Section>
   );
 }

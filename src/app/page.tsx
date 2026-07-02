@@ -2,20 +2,23 @@
 
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-import Experiences from "@/components/Experiences";
+import Education from "@/components/Education";
+import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
-import Hero from "@/components/Hero";
-import React from "react";
+import Roadmap from "@/components/Roadmap";
+import Terminal from "@/components/Terminal";
 
 export default function Home() {
   return (
-    <main className="bg-gradient-to-b from-gray-300 to-blue-200 text-black min-h-screen flex flex-col">
+    <main className="bg-background text-foreground min-h-screen flex flex-col">
       <Navbar />
       <Hero />
       <About />
+      <Terminal />
+      <Roadmap />
       <Projects />
-      <Experiences />
+      <Education />
       <Contact />
     </main>
   );
